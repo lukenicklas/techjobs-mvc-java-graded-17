@@ -37,11 +37,12 @@ public class SearchController {
             model.addAttribute("title", "All Jobs"); //adds title to the model
         } else {
             jobs = JobData.findByColumnAndValue(searchType,searchTerm);
+            model.addAttribute("title", "Jobs With " + columnChoices.get(searchType) + ": " + searchTerm);
         }
         model.addAttribute("columns", columnChoices); //adds column choices to the model
         model.addAttribute("jobs", jobs); //adds jobs to the model
 
-        return "search";
+        return "search"; //referring to the TL template file
     }
 }
 
